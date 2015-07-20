@@ -64,7 +64,7 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"idSegueNeighbours"]) {
         NeighboursViewController *neighboursViewController = [segue destinationViewController];
-        neighboursViewController.geonameID = [self.countryDetailsDictionary objectForKey:@"geonameId"];
+        neighboursViewController.geonameID = [self.countryDetailsDictionary objectForKey:@"countryName"]; //
     }
 }
 
@@ -181,7 +181,7 @@
             cell.textLabel.text = [self.countryDetailsDictionary objectForKey:@"languages"];
             break;
         case 6:
-            cell.textLabel.text = @"Neighbour Countries";
+            cell.textLabel.text = @"Show Map";
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             cell.selectionStyle = UITableViewCellSelectionStyleDefault;
             break;

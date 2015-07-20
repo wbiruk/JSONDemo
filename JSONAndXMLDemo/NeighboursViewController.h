@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
-@interface NeighboursViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSXMLParserDelegate>
 
-@property (weak, nonatomic) IBOutlet UITableView *tblNeighbours;
+@interface NeighboursViewController : UIViewController <MKMapViewDelegate>
+
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+
+- (IBAction)changeMapType:(id)sender;
+- (IBAction)zoomIn:(id)sender;
 
 @property (nonatomic, strong) NSString *geonameID;
 
