@@ -69,7 +69,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JmO-HJ-ZOg">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JmO-HJ-ZOg">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <items>
                                     <barButtonItem title="Zoom" id="aeD-hl-v1y">
@@ -84,11 +84,20 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UxO-ht-6Cj">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UxO-ht-6Cj">
                                 <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="UxO-ht-6Cj" secondAttribute="trailing" id="N9j-aW-oJg"/>
+                            <constraint firstItem="UxO-ht-6Cj" firstAttribute="trailing" secondItem="JmO-HJ-ZOg" secondAttribute="trailing" id="Rmk-Kt-qx0"/>
+                            <constraint firstItem="UxO-ht-6Cj" firstAttribute="top" secondItem="szn-G8-Ejx" secondAttribute="bottom" id="Ub3-3Z-LVS"/>
+                            <constraint firstItem="JmO-HJ-ZOg" firstAttribute="top" secondItem="UxO-ht-6Cj" secondAttribute="bottom" id="Wdz-uB-LXT"/>
+                            <constraint firstItem="JmO-HJ-ZOg" firstAttribute="bottom" secondItem="KUh-q7-nkV" secondAttribute="top" id="XVL-YT-gkC"/>
+                            <constraint firstItem="UxO-ht-6Cj" firstAttribute="leading" secondItem="JmO-HJ-ZOg" secondAttribute="leading" id="gyc-Ys-qlL"/>
+                            <constraint firstItem="UxO-ht-6Cj" firstAttribute="leading" secondItem="Bi6-Rt-pur" secondAttribute="leading" id="ubQ-gD-qo7"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Map" id="gqh-dB-U9s"/>
                     <connections>
