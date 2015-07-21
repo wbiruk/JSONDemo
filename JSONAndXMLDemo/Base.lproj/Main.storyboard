@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Country Info-->
@@ -17,25 +18,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type a country name..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pat-hJ-YWz">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type a country name..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pat-hJ-YWz">
                                 <rect key="frame" x="20" y="74" width="280" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.50196078430000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="iym-y0-TiK"/>
+                                </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
                             </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yro-0p-hCW">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yro-0p-hCW">
                                 <rect key="frame" x="20" y="123" width="280" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="JBc-B4-u2g"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="hZU-1V-ipl">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="hZU-1V-ipl">
                                 <rect key="frame" x="0.0" y="168" width="320" height="400"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hZU-1V-ipl" firstAttribute="top" secondItem="Yro-0p-hCW" secondAttribute="bottom" constant="15" id="D1u-7F-Ydj"/>
+                            <constraint firstAttribute="trailing" secondItem="hZU-1V-ipl" secondAttribute="trailing" id="IDh-VD-zZS"/>
+                            <constraint firstItem="Pat-hJ-YWz" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="4" id="JW5-JB-gZ4"/>
+                            <constraint firstItem="Pat-hJ-YWz" firstAttribute="leading" secondItem="Yro-0p-hCW" secondAttribute="leading" id="JeZ-AK-8oz"/>
+                            <constraint firstItem="Pat-hJ-YWz" firstAttribute="trailing" secondItem="Yro-0p-hCW" secondAttribute="trailing" id="U3w-Cw-2bS"/>
+                            <constraint firstItem="Yro-0p-hCW" firstAttribute="top" secondItem="Pat-hJ-YWz" secondAttribute="bottom" constant="19" id="cZU-qE-5JJ"/>
+                            <constraint firstItem="hZU-1V-ipl" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="gOp-F0-vF5"/>
+                            <constraint firstItem="hZU-1V-ipl" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="lVF-2N-Q3o"/>
+                            <constraint firstItem="Yro-0p-hCW" firstAttribute="centerX" secondItem="hZU-1V-ipl" secondAttribute="centerX" id="r3K-zz-8d8"/>
+                            <constraint firstItem="Pat-hJ-YWz" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="10" id="tqg-yP-Man"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Country Info" id="eVY-fA-qjW">
                         <barButtonItem key="backBarButtonItem" title="Back" id="Ugm-fi-Cf8"/>
@@ -72,11 +91,6 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JmO-HJ-ZOg">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <items>
-                                    <barButtonItem title="Zoom" id="aeD-hl-v1y">
-                                        <connections>
-                                            <action selector="zoomIn:" destination="dtP-kE-IWs" id="MLn-Ax-DGa"/>
-                                        </connections>
-                                    </barButtonItem>
                                     <barButtonItem title="Type" id="hEx-hS-ByX">
                                         <connections>
                                             <action selector="changeMapType:" destination="dtP-kE-IWs" id="AzK-JA-tSS"/>
@@ -84,7 +98,7 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UxO-ht-6Cj">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="UxO-ht-6Cj">
                                 <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                             </mapView>
                         </subviews>

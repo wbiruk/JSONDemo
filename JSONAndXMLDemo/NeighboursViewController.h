@@ -13,10 +13,10 @@
 @interface NeighboursViewController : UIViewController <MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (strong, nonatomic) NSDictionary *countryDetailsDictionary;
+
 
 - (IBAction)changeMapType:(id)sender;
-- (IBAction)zoomIn:(id)sender;
 
-@property (nonatomic, strong) NSString *geonameID;
 
 @end

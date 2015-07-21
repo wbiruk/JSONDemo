@@ -18,7 +18,6 @@
 @implementation NeighboursViewController
 
 
-@synthesize geonameID;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,7 +33,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-   
+    [self prepareMapWithCountryDetailsDictionary:self.countryDetailsDictionary];   
+
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -54,12 +55,36 @@
 }
 */
 
+- (void)prepareMapWithCountryDetailsDictionary:(NSDictionary *)dictionary {
+    
+    double north = [[dictionary objectForKey:@"north"] doubleValue];
+    double east = [[dictionary objectForKey:@"east"] doubleValue];
+    double south = [[dictionary objectForKey:@"south"] doubleValue];;
+    double west = [[dictionary objectForKey:@"west"] doubleValue];;
+    
+    
+    MKCoordinateRegion region;
+    MKCoordinateSpan span;
+    CLLocationCoordinate2D centerLocation;
+    
+    centerLocation = CLLocationCoordinate2DMake((north + south)/2, (east + west)/2);
+    span = MKCoordinateSpanMake(north - south, east - west);
+    region = MKCoordinateRegionMake(centerLocation, span);
+    
+    self.mapView.region = region;
+    
+}
 
 
 - (IBAction)changeMapType:(id)sender {
+    if (self.mapView.mapType == MKMapTypeStandard) {
+        self.mapView.mapType = MKMapTypeSatellite;
+    }
+    else {
+        self.mapView.mapType = MKMapTypeStandard;
+    }
 }
 
-- (IBAction)zoomIn:(id)sender {
-}
+
 
 @end

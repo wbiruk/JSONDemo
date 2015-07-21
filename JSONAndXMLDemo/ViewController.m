@@ -9,19 +9,15 @@
 #import "ViewController.h"
 #import "AppDelegate.h"
 #import "NeighboursViewController.h"
+#import "JSONDemoAPI.h"
 
 
 @interface ViewController ()
 
 @property (nonatomic, strong) NSArray *arrCountries;
-
 @property (nonatomic, strong) NSArray *arrCountryCodes;
-
 @property (nonatomic, strong) NSString *countryCode;
-
 @property (nonatomic, strong) NSDictionary *countryDetailsDictionary;
-
--(void)getCountryInfo;
 
 @end
 
@@ -42,6 +38,7 @@
     // Initially hide the table view.
     self.tblCountryDetails.hidden = YES;
     
+      
     
     // Load the contents of the two .txt files to the arrays.
     NSString *pathOfCountriesFile = [[NSBundle mainBundle] pathForResource:@"countries" ofType:@"txt"];
@@ -64,7 +61,15 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"idSegueNeighbours"]) {
         NeighboursViewController *neighboursViewController = [segue destinationViewController];
-        neighboursViewController.geonameID = [self.countryDetailsDictionary objectForKey:@"countryName"]; //
+        
+        neighboursViewController.countryDetailsDictionary = self.countryDetailsDictionary;
+        
+        
+//        neighboursViewController.countryCoordinatesDictionary[@"north"] = [self.countryDetailsDictionary objectForKey:@"north"];
+//        neighboursViewController.countryCoordinatesDictionary[@"west"] = [self.countryDetailsDictionary objectForKey:@"west"];
+//        neighboursViewController.countryCoordinatesDictionary[@"south"] = [self.countryDetailsDictionary objectForKey:@"south"];
+//        neighboursViewController.countryCoordinatesDictionary[@"east"] = [self.countryDetailsDictionary objectForKey:@"east"];
+        
     }
 }
 
@@ -106,10 +111,10 @@
 
 -(void)getCountryInfo{
     // Prepare the URL that we'll get the country info data from.
-    NSString *URLString = [NSString stringWithFormat:@"http://api.geonames.org/countryInfoJSON?username=%@&country=%@", kUsername, self.countryCode];
+    NSString *URLString = [NSString stringWithFormat:@"http://api.geonames.org/countryInfoJSON?username=%@&country=%@", [JSONDemoAPI getUsername] , self.countryCode];
     NSURL *url = [NSURL URLWithString:URLString];
     
-    [AppDelegate downloadDataFromURL:url withCompletionHandler:^(NSData *data) {
+    [JSONDemoAPI downloadDataFromURL:url withCompletionHandler:^(NSData *data) {
         // Check if any data returned.
         if (data != nil) {
             // Convert the returned data into a dictionary.
@@ -121,18 +126,23 @@
             }
             else{
                 self.countryDetailsDictionary = [[returnedDict objectForKey:@"geonames"] objectAtIndex:0];
+                [self populateViewWithDictionary:self.countryDetailsDictionary];
                 
-                // Set the country name to the respective label.
-                self.lblCountry.text = [NSString stringWithFormat:@"%@ (%@)", [self.countryDetailsDictionary objectForKey:@"countryName"], [self.countryDetailsDictionary objectForKey:@"countryCode"]];
-                
-                // Reload the table view.
-                [self.tblCountryDetails reloadData];
-                
-                // Show the table view.
-                self.tblCountryDetails.hidden = NO;
             }
         }
     }];
+}
+
+- (void)populateViewWithDictionary:(NSDictionary *)dictionary {
+    
+    // Set the country name to the respective label.
+    self.lblCountry.text = [NSString stringWithFormat:@"%@ (%@)", [dictionary objectForKey:@"countryName"], [dictionary objectForKey:@"countryCode"]];
+    
+    // Reload the table view.
+    [self.tblCountryDetails reloadData];
+    
+    // Show the table view.
+    self.tblCountryDetails.hidden = NO;
 }
 
 

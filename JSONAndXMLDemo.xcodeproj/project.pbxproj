@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2E1A76571B5D427500A5B154 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E1A76561B5D427500A5B154 /* MapKit.framework */; };
 		2E1A76591B5D427B00A5B154 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E1A76581B5D427B00A5B154 /* CoreLocation.framework */; };
+		2EE773B11B5E3CFA0016CA67 /* JSONDemoAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EE773B01B5E3CFA0016CA67 /* JSONDemoAPI.m */; };
 		C0F55E841981604F0072DAE6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0F55E831981604F0072DAE6 /* Foundation.framework */; };
 		C0F55E861981604F0072DAE6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0F55E851981604F0072DAE6 /* CoreGraphics.framework */; };
 		C0F55E881981604F0072DAE6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0F55E871981604F0072DAE6 /* UIKit.framework */; };
@@ -41,6 +42,8 @@
 /* Begin PBXFileReference section */
 		2E1A76561B5D427500A5B154 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2E1A76581B5D427B00A5B154 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		2EE773AF1B5E3CFA0016CA67 /* JSONDemoAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONDemoAPI.h; sourceTree = "<group>"; };
+		2EE773B01B5E3CFA0016CA67 /* JSONDemoAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONDemoAPI.m; sourceTree = "<group>"; };
 		C0F55E801981604F0072DAE6 /* JSONAndXMLDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSONAndXMLDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0F55E831981604F0072DAE6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C0F55E851981604F0072DAE6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -138,6 +141,8 @@
 				C0F55EBC198163F60072DAE6 /* countries.txt */,
 				C0F55E9B1981604F0072DAE6 /* Images.xcassets */,
 				C0F55E8A1981604F0072DAE6 /* Supporting Files */,
+				2EE773AF1B5E3CFA0016CA67 /* JSONDemoAPI.h */,
+				2EE773B01B5E3CFA0016CA67 /* JSONDemoAPI.m */,
 			);
 			path = JSONAndXMLDemo;
 			sourceTree = "<group>";
@@ -273,6 +278,7 @@
 				C0F55E9A1981604F0072DAE6 /* ViewController.m in Sources */,
 				C0F55E941981604F0072DAE6 /* AppDelegate.m in Sources */,
 				C0F55EBA198161CB0072DAE6 /* NeighboursViewController.m in Sources */,
+				2EE773B11B5E3CFA0016CA67 /* JSONDemoAPI.m in Sources */,
 				C0F55E901981604F0072DAE6 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
